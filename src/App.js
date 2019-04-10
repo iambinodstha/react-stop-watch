@@ -5,8 +5,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      timerCount: 0,
-      timerData: [],
+      timerCounter: 0,
+      timerSplitData: [],
       isPaused: true
     }
     this.splitTime = this.splitTime.bind(this);
@@ -18,7 +18,7 @@ class App extends Component {
       if (this.state.isPaused) {
         return null;
       } else {
-        this.setState({ timerCount: this.state.timerCount + 1 });
+        this.setState({ timerCounter: this.state.timerCounter + 1 });
       }
     }, 1);
   }
@@ -28,16 +28,19 @@ class App extends Component {
   }
 
   convertMillisecond(ms) {
-    let milliSeconds = ms;
-    let seconds = milliSeconds / 1000;
+    let seconds = ms / 1000;
     let minutes = seconds / 60;
 
-    return `${parseInt(minutes)} : ${parseFloat(seconds).toFixed(2)}`
+    let displayms = ms % 100 < 9 ? `0${parseInt(ms % 100)}` : parseInt(ms % 100);
+    let displaysec = (seconds % 60) < 10 ? `0${parseInt(seconds % 60)}` : (parseInt(seconds % 60));
+    let displaymin = minutes < 10 ? `0${parseInt(minutes)}` : parseInt(minutes);
+
+    return `${displaymin}:${displaysec}.${displayms}`
   }
 
   splitTime() {
     this.setState({
-      timerData: [this.state.timerCount, ...this.state.timerData]
+      timerSplitData: [...this.state.timerSplitData, this.state.timerCounter]
     });
   }
 
@@ -46,28 +49,29 @@ class App extends Component {
   }
 
   render() {
-    const { timerCount, timerData, isPaused } = this.state;
+    const { timerCounter, timerSplitData, isPaused } = this.state;
     return (
       <div className="App">
-        <h1>Stop Timer Application</h1>
+        <h1 className="title">Stop Watch Application</h1>
 
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <p>{this.convertMillisecond(timerCount)}</p>
+        <div>
+          <p className="timerCounter">{this.convertMillisecond(timerCounter)}</p>
           <button
-            onClick={this.splitTime}
-          >split</button>
-
-          <button
+            className="button"
             onClick={this.toggleTimer}
-          >{isPaused ? "play" : "pause"}</button>
+          >{isPaused ? "start" : "pause"}</button>
+
+          {timerCounter === 0 ? null : <button
+            className="button"
+            onClick={this.splitTime}
+          >split</button>}
         </div>
 
-        {timerData.map((timer, index) => {
-          return <p
-            key={index.toString()}
-          >
-            {this.convertMillisecond(timer)}
-          </p>
+        {timerSplitData.map((timer, index) => {
+          return <div className="timerLists" key={index.toString()}>
+            <p style={{ marginRight: "80px" }}>{index + 1}.</p>
+            <p>{this.convertMillisecond(timer)}</p>
+          </div>
         })}
       </div>
     );

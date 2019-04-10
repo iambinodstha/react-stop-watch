@@ -3,4 +3,39 @@
   margin: auto;
 }
 
+.App .title{
+  color: burlywood;
+}
+
+.App .timerCounter{
+  border: 1px solid tomato;
+  width: fit-content;
+  margin: 0;
+  padding: 1vmin 10vmin;
+  border-radius: 4px;
+  font-size: calc(10px + 2vmin);
+  color: tomato;
+  opacity: 0.7;
+}
+
+.App .button{
+  margin-top: 1vmin;
+  margin-right: 1vmin;
+  background-color: tomato;
+  color: white;
+  padding: 1vmin 5vmin;
+  border: none;
+  border-radius: 4px;
+  font-size: calc(5px + 2vmin);
+}
+
+.App .timerLists{
+  display: flex;
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  width: fit-content;
+}
+
+.App .timerLists p{
+  margin: 3vmin 0 0 0;
+}
 

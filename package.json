@@ -2,10 +2,7 @@
   "name": "stop-watch",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://binodstha7.github.io/react-stop-watch",
   "dependencies": {
-    "express": "^4.16.4",
-    "path": "^0.12.7",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"
@@ -14,9 +11,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
