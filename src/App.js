@@ -7,7 +7,7 @@ class App extends Component {
     this.state = {
       timerCount: 0,
       timerData: [],
-      isPaused: false
+      isPaused: true
     }
     this.splitTime = this.splitTime.bind(this);
     this.toggleTimer = this.toggleTimer.bind(this);
