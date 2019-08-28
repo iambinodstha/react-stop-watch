@@ -8,7 +8,7 @@ This is React Stop Watch Application where we can start and  pause running timew
 
 ## How to install
 1. clone this react project by running below command in git terminal:
-`git clone https://github.com/binodstha7/react-stop-watch.git`
+`git clone https://github.com/iambinodstha/react-stop-watch.git`
 
 2. after Step 1. goto project directory:
 `cd react-stop-watch`
