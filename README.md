@@ -4,7 +4,7 @@
 This is React Stop Watch Application where we can start and  pause running timewhich will be displayed in milliseconds, seconds and minutes. and when we click split button running time will be displayed in lists.
 
 ## Application User Interface
-![Application User Interface](https://github.com/binodstha7/react-stop-watch/blob/master/src/appDemo.png)
+![Application User Interface](https://github.com/iambinodstha/react-stop-watch/blob/master/src/appDemo.png)
 
 ## How to install
 1. clone this react project by running below command in git terminal:
